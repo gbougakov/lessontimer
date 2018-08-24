@@ -62,6 +62,7 @@
         //$(".btxt").html("До конца урока")
         if (currentTimer !== "lesson") {
           currentTimer = "lesson"
+          UIkit.countdown('.timer').stop()
           UIkit.countdown('.timer', {
             date: dte
           })
@@ -72,6 +73,7 @@
         dte.setMinutes(55)
         if (currentTimer !== "recess") {
           currentTimer = "recess"
+          UIkit.countdown('.timer').stop()
           UIkit.countdown('.timer', {
             date: dte
           })
