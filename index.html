@@ -20,6 +20,9 @@
         .uk-countdown-number {
             font-size: 80vh;
         }
+        #currenttime {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -28,6 +31,7 @@
         <h1 class="timer uk-margin-remove uk-text-center"><span
                 class="uk-countdown-number uk-countdown-minutes"></span>:<span
                 class="uk-countdown-number uk-countdown-seconds"></span></h1>
+        <h2 class="uk-margin-remove uk-text-center uk-text-bold" id="currenttime"></h2>
     </div>
 </div>
 <script src="jquery.min.js"></script>
@@ -90,6 +94,22 @@
   }
   setInterval(int, 3000)
 int()
+  function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('currenttime').innerHTML =
+      "СЕЙЧАС: " + h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+  }
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+  }
+  startTime()
 </script>
 </body>
 </html>
